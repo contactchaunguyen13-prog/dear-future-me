@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dear future me</title>
+    <link rel="stylesheet" href="futureme.css">
+</head>
+
+<footer class="copyright">
+    © 2026 dear future me. made with care <3
+</footer>
+
+<body>
+
+    <header class="top-bar">
+        <div class="brand" id="brandMenuBtn">✦ dear-future-me</div>
+
+        <div class="brand-menu" id="brandMenu">
+            <div id="fileMenuList"></div>
+            <button class="menu-new" id="newFileBtn">+ new save</button>
+        </div>
+
+        <div class="save-status" id="saveStatus"></div>
+
+        <div class="top-meta">
+            <span class="file-options-trigger" id="fileOptionsBtn">
+                / <span id="saveFileName">untitled.save</span>
+            </span>
+
+            <div class="file-options-menu" id="fileOptionsMenu">
+                <button id="sendFutureBtn">send to future me</button>
+            </div>
+
+            <span id="liveClock">23:02</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="window left-panel">
+            <div class="window-title">
+                <span id="leftWindowTitle">current_quest.save</span>
+
+                <div class="window-buttons">
+                    <span>_</span>
+                    <span>❑</span>
+                    <span>×</span>
+                </div>
+            </div>
+
+            <div class="window-content">
+                <input id="planningTitle" class="planning-title" type="text" placeholder="prom night">
+
+                <p class="file-meta">
+                    created: <span id="createdTime">--/--/-- --:--</span>
+                </p>
+
+                <section class="section-block">
+                    <h2>mood_board/</h2>
+
+                    <div class="mood-board">
+                        <label class="photo-slot">
+                            <span class="plus-sign">+</span>
+                            <span class="upload-text">add image</span>
+                            <input type="file" accept="image/*" hidden>
+                        </label>
+
+                        <label class="photo-slot">
+                            <span class="plus-sign">+</span>
+                            <span class="upload-text">add image</span>
+                            <input type="file" accept="image/*" hidden>
+                        </label>
+
+                        <label class="photo-slot wide">
+                            <span class="plus-sign">+</span>
+                            <span class="upload-text">add image</span>
+                            <input type="file" accept="image/*" hidden>
+                        </label>
+                    </div>
+                </section>
+
+                <section class="section-block">
+                    <h2>note_to_self.txt</h2>
+
+                    <p class="note-time">
+                        last edited: <span id="noteTime">--:--</span>
+                    </p>
+
+                    <textarea id="futureNote" class="future-note" placeholder="don't forget why you're doing this..."></textarea>
+                </section>
+            </div>
+        </section>
+
+        <section class="window right-panel">
+            <div class="window-title">
+                <span id="rightWindowTitle">worth_it?.xlsx</span>
+
+                <div class="window-buttons">
+                    <span>_</span>
+                    <span>❑</span>
+                    <span>×</span>
+                </div>
+            </div>
+
+            <div class="window-content">
+                <h2>budget_sheet</h2>
+
+                <div class="money-row">
+                    <div class="currency-input">
+                        <label>currency</label>
+
+                        <select id="currencySelect">
+                            <option value="$">USD ($)</option>
+                            <option value="€">EUR (€)</option>
+                            <option value="£">GBP (£)</option>
+                            <option value="₫">VND (₫)</option>
+                            <option value="¥">JPY (¥)</option>
+                            <option value="₩">KRW (₩)</option>
+                        </select>
+                    </div>
+
+                    <div class="budget-input">
+                        <label>budget goal</label>
+                        <input type="number" id="budgetInput" placeholder="100">
+                    </div>
+                </div>
+
+                <div class="budget-summary">
+                    <div class="summary-card">
+                        <p>planned</p>
+                        <h3 id="totalPlanned">$0</h3>
+                    </div>
+
+                    <div class="summary-card">
+                        <p>left</p>
+                        <h3 id="leftBudget">$0</h3>
+                    </div>
+
+                    <div class="summary-card budget-card">
+                        <p>budget</p>
+                        <h3 id="budgetDisplay">$0</h3>
+                    </div>
+                </div>
+
+                <div class="progress-section">
+                    <span id="progressText">$0 / $0 used</span>
+
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+
+                    <div class="reflection-box">
+                        <p id="reflectionText">set a budget goal to start planning.</p>
+                    </div>
+                </div>
+
+                <section class="section-block">
+                    <h2>shopping_cart</h2>
+
+                    <div id="itemList" class="item-list">
+                        <div class="empty-state">
+                            <p>no items yet</p>
+                            <span>add items below ↓</span>
+                        </div>
+                    </div>
+
+                    <div class="item-form">
+                        <input type="text" id="itemName" placeholder="outfit">
+                        <input type="number" id="itemPrice" placeholder="40">
+                        <button id="addItemBtn">+</button>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="date-modal" id="dateModal">
+        <div class="date-window">
+            <div class="date-title">send to future me</div>
+
+            <p>when should future you receive this?</p>
+
+            <input type="date" id="futureDateInput">
+
+            <div class="date-actions">
+                <button id="cancelFutureBtn">cancel</button>
+                <button id="confirmFutureBtn">send</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="delete-modal" id="deleteModal">
+        <div class="delete-window">
+            <div class="delete-title">delete file</div>
+
+            <div class="delete-content">
+                <p id="deleteMessage">delete this save file?</p>
+                <p class="delete-warning">this action cannot be undone.</p>
+
+                <div class="delete-actions">
+                    <button id="cancelDeleteBtn">cancel</button>
+                    <button id="confirmDeleteBtn">delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="futureme.js"></script>
+</body>
+</html>

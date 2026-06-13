@@ -1,0 +1,960 @@
+/* ==========================================
+   DEAR FUTURE ME
+   STYLESHEET
+
+   1. Global
+   2. Top Bar
+   3. File Menus
+   4. Layout
+   5. Windows
+   6. Typography
+   7. Mood Board
+   8. Notes
+   9. Budget System
+   10. Shopping List
+   11. Save Status
+   12. Modals
+   13. Copyright
+   14. Responsive
+========================================== */
+
+
+/* ========== 1. GLOBAL ========== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "MS Sans Serif", "Tahoma", Arial, sans-serif;
+    background-image: url("bliss.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #111;
+
+    padding: 18px;
+    padding-bottom: 60px;
+
+    font-size: 15px;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.top-bar,
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========== 2. TOP BAR ========== */
+
+.top-bar {
+    max-width: 1180px;
+    margin: 0 auto 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f3f3f3;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    padding: 8px 12px;
+    box-shadow: 3px 3px 0 #8d8d8d;
+    position: relative;
+    z-index: 50;
+    overflow: visible;
+}
+
+.brand {
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+    letter-spacing: 0.75px;
+    font-size: 20px;
+    color: #5b5b5b;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s ease;
+}
+
+.brand:hover {
+    color: #003caa;
+}
+
+.top-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Courier New", monospace;
+    color: #333;
+    position: relative;
+}
+
+#liveClock {
+    background: #fff7d6;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    padding: 3px 9px;
+}
+
+.file-options-trigger {
+    font-size: 15px;
+    cursor: pointer;
+    user-select: none;
+    color: inherit;
+    transition: color 0.15s ease;
+}
+
+.file-options-trigger:hover {
+    color: #0048c8;
+}
+
+
+/* ========== 3. FILE MENUS ========== */
+
+.brand-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 12px;
+    width: 270px;
+    z-index: 999;
+    display: none;
+
+    background: #f3f3f3;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    box-shadow: 2px 2px 0 #8d8d8d;
+
+    padding: 10px;
+}
+
+.brand-menu.open {
+    display: block;
+}
+
+.menu-label {
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 8px;
+    text-transform: lowercase;
+}
+
+.menu-label:not(:first-child) {
+    margin-top: 14px;
+}
+
+.menu-file,
+.menu-new {
+    width: 100%;
+    display: block;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 900;
+    text-align: left;
+
+    background: #f0f0f0;
+    color: #003caa;
+
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+
+    padding: 7px 8px;
+    margin-bottom: 6px;
+
+    cursor: pointer;
+}
+
+.menu-file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    transition: transform 0.15s ease;
+}
+
+.menu-file:hover {
+    transform: translateX(1px);
+}
+
+.menu-file.active {
+    background: #fff7c7;
+    color: #8b6500;
+}
+
+.menu-file:active,
+.menu-new:active {
+    border-top-color: #404040;
+    border-left-color: #404040;
+    border-bottom-color: #ffffff;
+    border-right-color: #ffffff;
+}
+
+.delete-file-btn {
+    opacity: 0;
+    color: #777;
+    font-weight: bold;
+
+    margin-left: auto;
+    padding: 0 3px;
+    line-height: 1;
+}
+
+.menu-file:hover .delete-file-btn {
+    opacity: 1;
+}
+
+.delete-file-btn:hover {
+    color: #b64646;
+}
+
+.empty-files {
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    color: #666;
+    padding: 10px 4px;
+}
+
+.file-options-menu {
+    position: absolute;
+    top: calc(100% + 13px);
+    right: 52px;
+    z-index: 999;
+
+    display: none;
+
+    background: #f3f3f3;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    box-shadow: 2px 2px 0 #8d8d8d;
+
+    padding: 3px;
+    width: auto;
+    min-width: max-content;
+}
+
+.file-options-menu.open {
+    display: block;
+}
+
+.file-options-menu button {
+    display: block;
+
+    background: transparent;
+    border: none;
+
+    padding: 5px 8px;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: 900;
+
+    color: #003caa;
+    text-align: left;
+
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.file-options-menu button:hover {
+    background: #fff7c7;
+    color: #8b6500;
+}
+
+
+/* ========== 4. LAYOUT ========== */
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 18px;
+    align-items: stretch;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ========== 5. WINDOWS ========== */
+
+.window {
+    background: #f7f7f2;
+    border: 2px solid #8f8f8f;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.6),
+        4px 4px 12px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.window-title {
+    background: linear-gradient(
+        to bottom,
+        #4f8df0 0%,
+        #2f6fd9 40%,
+        #0057d9 100%
+    );
+    color: white;
+    padding: 8px 12px;
+    font-family: "Tahoma", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.window-content {
+    background: rgba(255, 254, 248, 0.96);
+    padding: 26px 28px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.window-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.window-buttons span {
+    width: 18px;
+    height: 18px;
+    background: #f0f0f0;
+    color: #111;
+    border: 2px solid #ffffff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+
+/* ========== 6. TYPOGRAPHY ========== */
+
+h2 {
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-transform: lowercase;
+    color: #003caa;
+}
+
+.section-block {
+    margin-top: 28px;
+}
+
+.file-meta,
+.note-time,
+label {
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    color: #555;
+}
+
+.file-meta {
+    margin-top: 4px;
+}
+
+.note-time {
+    margin-top: -5px;
+    margin-bottom: 8px;
+}
+
+.planning-title {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #333;
+}
+
+.planning-title::placeholder {
+    color: #8b8b8b;
+}
+
+.planning-title:focus {
+    outline: none;
+}
+
+
+/* ========== 7. MOOD BOARD ========== */
+
+.mood-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.photo-slot {
+    position: relative;
+    min-height: 100px;
+    background: #eef6ff;
+    border: 2px dashed #8ca7cf;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    color: #003caa;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.photo-slot.wide {
+    grid-column: span 2;
+    min-height: 110px;
+}
+
+.photo-slot:hover {
+    background: #e2f0ff;
+    border-color: #003caa;
+}
+
+.plus-sign {
+    font-size: 32px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.upload-text {
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.preview-image,
+.photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.15s ease;
+}
+
+.photo-slot:hover .preview-image,
+.photo-slot:hover img {
+    opacity: 0.92;
+}
+
+
+/* ========== 8. NOTES ========== */
+
+.future-note {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding: 14px;
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #111;
+    background: #fffef8;
+    border: 1px solid #808080;
+}
+
+.future-note:focus {
+    outline: none;
+}
+
+
+/* ========== 9. BUDGET SYSTEM ========== */
+
+.money-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.currency-input label,
+.budget-input label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 900;
+    text-transform: lowercase;
+}
+
+.currency-input select,
+.budget-input input,
+.item-form input {
+    width: 100%;
+    height: 44px;
+    padding: 0 10px;
+    font: inherit;
+    background: white;
+    color: #111;
+    border: 2px solid #8a8a8a;
+    border-top-color: #404040;
+    border-left-color: #404040;
+}
+
+.currency-input select:focus,
+.budget-input input:focus,
+.item-form input:focus {
+    outline: none;
+}
+
+.budget-input input::-webkit-outer-spin-button,
+.budget-input input::-webkit-inner-spin-button,
+.item-form input::-webkit-outer-spin-button,
+.item-form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.budget-input input[type="number"],
+.item-form input[type="number"] {
+    appearance: textfield;
+}
+
+.budget-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.summary-card {
+    background: #f0f0f0;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    padding: 12px;
+}
+
+.summary-card p {
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 13px;
+    text-transform: lowercase;
+}
+
+.summary-card h3 {
+    font-size: 23px;
+    color: #003caa;
+}
+
+.budget-card {
+    background: #fff2a8;
+    border: 2px solid #d6b93d;
+    border-top-color: #fff8cf;
+    border-left-color: #fff8cf;
+    border-right-color: #b89d2c;
+    border-bottom-color: #b89d2c;
+}
+
+.budget-card p,
+.budget-card h3 {
+    color: #8b6500;
+}
+
+.progress-section {
+    margin-top: 20px;
+}
+
+#progressText {
+    display: block;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 16px;
+    background: white;
+    border: 2px solid #8a8a8a;
+    border-top-color: #404040;
+    border-left-color: #404040;
+    padding: 2px;
+    overflow: hidden;
+}
+
+#progressFill {
+    width: 0%;
+    height: 100%;
+    background: #0057d9;
+    transition:
+        width 0.25s ease,
+        background 0.25s ease;
+}
+
+#progressFill.budget-safe,
+#progressFill.budget-close {
+    background: #0057d9;
+}
+
+#progressFill.budget-over {
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #0057d9 0px,
+            #0057d9 6px,
+            #8cb2f5 6px,
+            #8cb2f5 12px
+        );
+}
+
+.reflection-box {
+    margin-top: 16px;
+    background: #fff7c7;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    padding: 13px 14px;
+    color: #111;
+}
+
+
+/* ========== 10. SHOPPING LIST ========== */
+
+.item-list {
+    margin-top: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    color: #555;
+    background: #eef6ff;
+    border: 2px dashed #8ca7cf;
+    padding: 28px 0;
+}
+
+.empty-state p {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.empty-state span {
+    display: block;
+    font-size: 12px;
+    color: #777;
+}
+
+.priority-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0f0f0;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    padding: 11px 12px;
+    margin-bottom: 9px;
+    cursor: grab;
+}
+
+.priority-info,
+.priority-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.drag-handle {
+    color: #003caa;
+    cursor: grab;
+    user-select: none;
+    font-weight: bold;
+}
+
+.delete-btn {
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    background: #f0f0f0;
+    padding: 0 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-btn:active {
+    border-top-color: #404040;
+    border-left-color: #404040;
+    border-bottom-color: #ffffff;
+    border-right-color: #ffffff;
+}
+
+.priority-item.dragging {
+    opacity: 0.45;
+}
+
+.item-form {
+    display: grid;
+    grid-template-columns: 1.7fr 0.9fr 48px;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+.item-form button {
+    height: 44px;
+    background: #f0f0f0;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    color: #003caa;
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.item-form button:active {
+    border-top-color: #404040;
+    border-left-color: #404040;
+    border-bottom-color: #ffffff;
+    border-right-color: #ffffff;
+}
+
+
+/* ========== 11. SAVE STATUS ========== */
+
+.save-status {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #8a8a8a;
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+
+    pointer-events: none;
+    font-style: italic;
+}
+
+.save-status.visible {
+    opacity: 1;
+}
+
+
+/* ========== 12. MODALS ========== */
+
+.date-modal,
+.delete-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 5000;
+}
+
+.date-modal.open,
+.delete-modal.open {
+    display: flex;
+}
+
+.date-window,
+.delete-window {
+    background: #f3f3f3;
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+    box-shadow: 4px 4px 0 #8d8d8d;
+
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+
+    position: relative;
+    z-index: 5001;
+}
+
+.date-window {
+    width: 340px;
+}
+
+.delete-window {
+    width: 360px;
+}
+
+.date-title,
+.delete-title {
+    background: linear-gradient(
+        to bottom,
+        #4f8df0 0%,
+        #2f6fd9 40%,
+        #0057d9 100%
+    );
+
+    color: white;
+    padding: 8px 10px;
+
+    font-family: "Tahoma", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.date-window p,
+.date-window input,
+.date-actions {
+    margin-left: 18px;
+    margin-right: 18px;
+}
+
+.date-window p {
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+
+.date-window input[type="date"] {
+    width: calc(100% - 36px);
+    height: 38px;
+
+    padding: 0 10px;
+
+    border: 2px solid #8a8a8a;
+    border-top-color: #404040;
+    border-left-color: #404040;
+
+    background: white;
+    font: inherit;
+}
+
+.delete-content {
+    padding: 18px 22px 20px;
+}
+
+#deleteMessage {
+    margin-bottom: 10px;
+}
+
+.delete-warning {
+    color: #555;
+    margin-bottom: 22px;
+}
+
+.date-actions,
+.delete-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.date-actions {
+    gap: 8px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+.delete-actions {
+    gap: 10px;
+}
+
+.date-actions button,
+.delete-actions button {
+    height: 34px;
+
+    background: #f0f0f0;
+
+    border: 2px solid #8a8a8a;
+    border-top-color: #ffffff;
+    border-left-color: #ffffff;
+
+    font-family: "Courier New", monospace;
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.date-actions button {
+    min-width: 82px;
+}
+
+.delete-actions button {
+    min-width: 86px;
+}
+
+.date-actions button:hover,
+.delete-actions button:hover,
+#confirmFutureBtn:hover,
+#confirmDeleteBtn:hover {
+    background: #f7f7f7;
+}
+
+.date-actions button:active,
+.delete-actions button:active,
+#confirmFutureBtn:active {
+    transform: translate(1px, 1px);
+
+    border-top-color: #404040;
+    border-left-color: #404040;
+    border-bottom-color: #ffffff;
+    border-right-color: #ffffff;
+}
+
+/* ========== 13. COPYRIGHT ========== */
+
+.copyright {
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: "Courier New", monospace;
+    font-size: 13.5px;
+
+    color: rgba(0,0,0,0.45);
+
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ========== 14. RESPONSIVE ========== */
+
+@media (max-width: 880px) {
+    body {
+        padding: 12px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .planning-title {
+        font-size: 32px;
+    }
+
+    .money-row,
+    .budget-summary {
+        grid-template-columns: 1fr;
+    }
+}
