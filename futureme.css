@@ -918,21 +918,13 @@ label {
 /* ========== 13. COPYRIGHT ========== */
 
 .copyright {
-    .copyright {
-    position: fixed;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
 
     font-family: "Courier New", monospace;
-    font-size: 13.5px;
-    letter-spacing: 0.05em;
-
-    color: rgba(0, 0, 0, 0.45);
-
-    z-index: 0;
-    pointer-events: none;
-    white-space: nowrap;
+    font-size: 11px;
+    color: rgba(0,0,0,.45);
 }
 
 /* ========== 14. RESPONSIVE ========== */
