@@ -1,7 +1,5 @@
 /* ==========================================
-   DEAR FUTURE ME
    STYLESHEET
-
    1. Global
    2. Top Bar
    3. File Menus
@@ -15,7 +13,9 @@
    11. Save Status
    12. Modals
    13. Copyright
-   14. Responsive
+   14. Info Button
+   15. Info Modal
+   16. Responsive
 ========================================== */
 
 
@@ -37,7 +37,7 @@ body {
     color: #111;
 
     padding: 18px;
-    padding-bottom: 60px;
+    padding-bottom: 22px;
 
     font-size: 15px;
     position: relative;
@@ -53,7 +53,8 @@ body::before {
 }
 
 .top-bar,
-.container {
+.container,
+.copyright {
     position: relative;
     z-index: 1;
 }
@@ -794,7 +795,7 @@ label {
 }
 
 .date-window {
-    width: 340px;
+    width: 480px;
 }
 
 .delete-window {
@@ -918,21 +919,77 @@ label {
 /* ========== 13. COPYRIGHT ========== */
 
 .copyright {
-    position: fixed;
-    bottom: 18px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 28px auto 0;
 
+    text-align: center;
     font-family: "Courier New", monospace;
     font-size: 13.5px;
 
     color: rgba(0,0,0,0.45);
-
-    z-index: 1;
     pointer-events: none;
 }
 
-/* ========== 14. RESPONSIVE ========== */
+/* ========== 14. INFO BUTTON ========== */
+
+.info-button {
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    font-family: "Segoe UI", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+
+    color: #777;
+
+    cursor: pointer;
+    user-select: none;
+
+    transition: color .15s ease;
+
+    z-index: 1000;
+}
+
+.info-button:hover,
+.info-button:focus-visible {
+    color: #0057d9;
+}
+
+.info-button:focus {
+    outline: none;
+}
+
+/* ========== 15. INFO MODAL ========== */
+
+.info-content {
+    padding: 18px 18px 0;
+}
+
+.info-content h3 {
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 10px;
+
+    color: #003caa;
+
+    font-family: "Courier New", monospace;
+}
+
+.info-content p {
+    margin-bottom: 14px;
+
+    line-height: 1.5;
+}
+
+.info-content strong {
+    color: #003caa;
+}
+
+/* ========== 16. RESPONSIVE ========== */
 
 @media (max-width: 880px) {
     body {
