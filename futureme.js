@@ -1,7 +1,5 @@
 /* ==========================================
-   DEAR FUTURE ME
    SCRIPT
-
    1. DOM Elements
    2. Global State
    3. Time Helpers
@@ -12,7 +10,8 @@
    8. Shopping List
    9. Drag and Drop
    10. Event Listeners
-   11. App Startup
+   11. Info Modal
+   12. App Startup
 ========================================== */
 
 
@@ -455,8 +454,8 @@ function checkFutureDeliveries() {
 
         showSaveStatus(
             deliveredCount === 1
-                ? "1 message from your past self."
-                : `${deliveredCount} messages from your past self.`
+                ? "1 message from your past self"
+                : `${deliveredCount} messages from your past self`
         );
 
         return true;
@@ -914,8 +913,34 @@ confirmDeleteBtn.addEventListener("click", function () {
     renderFileMenu();
 });
 
+/* ========== 11. INFO MODAL ========== */
 
-/* ========== 11. APP STARTUP ========== */
+const infoBtn = document.getElementById("infoBtn");
+const infoModal = document.getElementById("infoModal");
+const closeInfoBtn = document.getElementById("closeInfoBtn");
+
+infoBtn.addEventListener("click", function () {
+
+    brandMenu.classList.remove("open");
+    fileOptionsMenu.classList.remove("open");
+
+    infoModal.classList.add("open");
+});
+
+closeInfoBtn.addEventListener("click", function () {
+    infoModal.classList.remove("open");
+});
+
+document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "Escape" &&
+        infoModal.classList.contains("open")
+    ) {
+        infoModal.classList.remove("open");
+    }
+});
+
+/* ========== 12. APP STARTUP ========== */
 
 updateClock();
 setInterval(updateClock, 1000);
