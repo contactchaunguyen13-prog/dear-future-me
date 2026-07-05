@@ -28,6 +28,8 @@
 }
 
 body {
+    cursor: url("cursor.cur"), auto;
+   
     min-height: 100vh;
     font-family: "MS Sans Serif", "Tahoma", Arial, sans-serif;
     background-image: url("bliss.jpg");
