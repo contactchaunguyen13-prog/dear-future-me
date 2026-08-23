@@ -28,7 +28,6 @@
 }
 
 body {
-    cursor: url("cursor.cur"), auto;
    
     min-height: 100vh;
     font-family: "MS Sans Serif", "Tahoma", Arial, sans-serif;
@@ -1016,4 +1015,8 @@ label {
     .budget-summary {
         grid-template-columns: 1fr;
     }
+}
+
+* {
+    cursor: url("cursor-retro.png") 0 0, none !important;
 }
