@@ -64,6 +64,7 @@ const deleteMessage = document.getElementById("deleteMessage");
 const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
 const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
 
+const clickSound = new Audio("click.mp3");
 
 /* ========== 2. GLOBAL STATE ========== */
 
