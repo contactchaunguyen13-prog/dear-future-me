@@ -11,9 +11,9 @@
    9. Drag and Drop
    10. Event Listeners
    11. Info Modal
-   12. App Startup
+   12. Sound System
+   13. App Startup
 ========================================== */
-
 
 /* ========== 1. DOM ELEMENTS ========== */
 
@@ -940,7 +940,22 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-/* ========== 12. APP STARTUP ========== */
+/* ========== 12. SOUND SYSTEM ========== */
+
+function playClickSound() {
+    clickSound.currentTime = 0;
+    clickSound.play().catch(() => {});
+}
+
+document.addEventListener("click", function (event) {
+    const clickable = event.target.closest("button, .photo-slot");
+
+    if (clickable) {
+        playClickSound();
+    }
+});
+
+/* ========== 13. APP STARTUP ========== */
 
 updateClock();
 setInterval(updateClock, 1000);
