@@ -990,6 +990,12 @@ label {
     color: #003caa;
 }
 
+.tutorial-link {
+    color: #000080;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /* ========== 16. RESPONSIVE ========== */
 
 @media (max-width: 880px) {
