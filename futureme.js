@@ -666,7 +666,7 @@ function addItem() {
     const name = itemName.value.trim().toLowerCase();
     const price = Number(itemPrice.value);
 
-    if (!name || price <= 0) return;
+    if (!name || isNaN(price) || price < 0) return;
 
     items.push({
         name: name,
