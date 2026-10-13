@@ -34,4 +34,4 @@ Active User counts: 3K+
 
 Visit us on Instagram & TikTok at @dearfutureme.save
 
-© 2026 dear future me. Made with care <3
+© 2026 dear future me. made with love <3
