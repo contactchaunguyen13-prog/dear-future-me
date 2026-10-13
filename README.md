@@ -28,10 +28,10 @@ Built with HTML/CSS/Javascript
 
 Hosted on Vercel
 
-Link to space: dearfutureme-save.vercel.app
+Link to space: _dearfutureme-save.vercel.app_
 
 Active User counts: 3K+
 
-Visit us on Instagram & TikTok at @dearfutureme.save
+Visit us on Instagram & TikTok at _@dearfutureme.save_
 
 © 2026 dear future me. made with love <3
